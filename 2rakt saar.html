@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Saar Pariksha Quiz</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 60%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .question {
+            font-size: 24px;
+            color: #4d4d4d;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            width: 100%;
+            padding: 10px;
+            background-color: #4d4d4d;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .option.correct {
+            background-color: #00cc00;
+            color: #fff;
+        }
+
+        .option:hover {
+            background-color: #fff;
+            color: #4d4d4d;
+            border: 1px solid #4d4d4d;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #4d4d4d;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+            background: conic-gradient(
+                #4d4d4d 0% 10%, 
+                #ff6666 10% 20%, 
+                #66b3ff 20% 30%, 
+                #99ff99 30% 40%, 
+                #ffcc00 40% 50%, 
+                #cc99ff 50% 60%, 
+                #ff9966 60% 70%, 
+                #66cccc 70% 80%, 
+                #cc66cc 80% 90%, 
+                #6699cc 90% 100%
+            );
+        }
+
+        .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1> Saar Pariksha Quiz</h1>
+    <div class="container">
+        <div class="question"> rakt Saar Pariksha?</div>
+        <div class="options">
+         <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(ears)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(eyes)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(mouth)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(tongue)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(nose)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(lips)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(palm &sole)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(nail)</div>
+            <div class="option" onclick="checkAnswer(this)">reddish,soft,attractive & shinning(forehead)</div>
+            <div class="option" onclick="checkAnswer(this)">happiness</div>
+<div class="option" onclick="checkAnswer(this)">intellect</div>
+<div class="option" onclick="checkAnswer(this)">delicate</div>
+<div class="option" onclick="checkAnswer(this)">moderate strength</div>
+<div class="option" onclick="checkAnswer(this)">inability to face dificulty</div>
+<div class="option" onclick="checkAnswer(this)">intolerance to heat</div>
+        </div>
+        <div class="result">Result: <span id="result"></span></div>
+        <div class="chart-container">
+            <div class="pie-chart" id="pieChart">
+                <div class="percentage" id="percentage">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(option) {
+            // Toggle the selected option's correctness
+            option.classList.toggle("correct");
+
+            // Calculate and update percentages
+            var totalOptions = document.querySelectorAll(".option").length;
+            var correctOptions = document.querySelectorAll(".option.correct").length;
+            var percentage = (correctOptions / totalOptions) * 100;
+            document.getElementById("percentage").innerText = percentage.toFixed(2) + "%";
+        }
+    </script>
+</body>
+</html>
+
+
